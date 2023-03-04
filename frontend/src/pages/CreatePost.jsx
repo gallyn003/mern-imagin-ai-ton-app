@@ -39,6 +39,7 @@ const CreatePost = () => {
 	};
 
 	const handleSubmit = async (e) => {
+		if (e.target.keyCode === 13) return;
 		e.preventDefault();
 		if (form.prompt && form.photo) {
 			setLoading(true);
@@ -99,6 +100,8 @@ const CreatePost = () => {
 						handleChange={handleChange}
 						isSurpriseMe
 						handleSurpriseMe={handleSurpriseMe}
+						generatingImg={generatingImg}
+						loading={loading}
 					/>
 					<div className="relative bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-64 p-3 h-64 flex justify-center items-center">
 						{form.photo ? (
@@ -127,6 +130,7 @@ const CreatePost = () => {
 					<button
 						type="button"
 						onClick={generateImage}
+						disabled={generatingImg || loading}
 						className="text-white bg-green-700 font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5"
 					>
 						{generatingImg ? 'Generating...' : 'Generate'}
@@ -140,6 +144,7 @@ const CreatePost = () => {
 					</p>
 					<button
 						type="submit"
+						disabled={generatingImg || loading}
 						className="mt-3 text-white bg-[#6469ff] font-medium rouned-md text-sm w-full sm:w-auto px-5 py-2.5 text-center"
 					>
 						{loading ? 'Sharing...' : 'Share with the community'}
