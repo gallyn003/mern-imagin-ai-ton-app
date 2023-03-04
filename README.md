@@ -1,4 +1,4 @@
-# Memory Legends
+# Imagin AI-ton
 My objective with building this project was to learn the basics of React. Thanks to it's well-written docs it was a great experience.
 
 #
