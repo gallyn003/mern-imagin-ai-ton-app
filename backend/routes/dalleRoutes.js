@@ -2,20 +2,20 @@ import express from 'express';
 import * as dotenv from 'dotenv';
 import { Configuration, OpenAIApi } from 'openai';
 
+// Loads .env file into process.env
 dotenv.config();
 
 const router = express.Router();
 
+// OpenAI API key configuration
 const configuration = new Configuration({
 	apiKey: process.env.OPENAI_API_KEY,
 });
 
+// OpenAI instance with configuration
 const openai = new OpenAIApi(configuration);
 
-router.route('/').get((req, res) => {
-	res.send('Hello from DALL-E!');
-});
-
+// Creating image based on prompt text
 router.route('/').post(async (req, res) => {
 	try {
 		const { prompt } = req.body;

@@ -1,3 +1,4 @@
+// Pre loaded prompts for users
 export const surpriseMePrompts = [
 	'an armchair in the shape of an avocado',
 	'a surrealist dream-like oil painting by Salvador Dalí of a cat playing checkers',
